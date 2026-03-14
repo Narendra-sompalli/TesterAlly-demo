@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bot, Cpu, FileText, Menu, X } from 'lucide-react';
+import { Bot, Menu, X, Users, Target } from 'lucide-react';
 
-export default function Home() {
+export default function About() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
@@ -64,30 +64,39 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* About Hero */}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            About <span className="text-blue-500">TesterAlly</span>
+          </h1>
+          <p className="text-xl text-gray-300">
+            Leading the way in Agentic AI for Web Testing
+          </p>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-up">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Welcome to <span className="text-blue-500">TesterAlly</span>
-              </h1>
-              <p className="text-xl text-gray-300 mb-8">
-                Revolutionizing Web Testing with Agentic AI Agents
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105">
-                  Get Started
-                </button>
-                <button className="border border-blue-600 hover:bg-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200">
-                  Learn More
-                </button>
+            <div>
+              <div className="flex items-center mb-6">
+                <Target className="h-12 w-12 text-blue-500 mr-4" />
+                <h2 className="text-3xl font-bold">Our Mission</h2>
               </div>
+              <p className="text-lg text-gray-300 mb-8">
+                TesterAlly is dedicated to revolutionizing web testing through advanced Agentic AI technology.
+                Our agents autonomously explore and test web applications, ensuring comprehensive coverage and accurate results.
+              </p>
+              <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105">
+                Learn More About Our Tech
+              </button>
             </div>
-            <div className="animate-fade-in-right">
+            <div>
               <img
-                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="AI Testing"
+                src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="AI Technology"
                 className="w-full h-96 object-cover rounded-lg shadow-2xl"
               />
             </div>
@@ -95,55 +104,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Team Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-2">
-              <Cpu className="h-12 w-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Automated Testing</h3>
-              <p className="text-gray-300 mb-4">AI-driven automation for comprehensive web testing.</p>
-              <button className="text-blue-400 hover:text-blue-300 font-semibold">Explore →</button>
-            </div>
-            <div className="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-2">
-              <FileText className="h-12 w-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">DOM Analysis</h3>
-              <p className="text-gray-300 mb-4">Deep DOM structure analysis for accurate testing.</p>
-              <button className="text-blue-400 hover:text-blue-300 font-semibold">Explore →</button>
-            </div>
-            <div className="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-2">
-              <Bot className="h-12 w-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Workflow Generation</h3>
-              <p className="text-gray-300 mb-4">Generate detailed MD files for easy test creation.</p>
-              <button className="text-blue-400 hover:text-blue-300 font-semibold">Explore →</button>
-            </div>
+          <div className="text-center mb-12">
+            <Users className="h-12 w-12 text-blue-500 mx-auto mb-4" />
+            <h2 className="text-3xl font-bold">Our Team</h2>
+            <p className="text-gray-300 mt-4">Meet the experts behind TesterAlly</p>
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Stay Updated</h2>
-          <div className="bg-gray-800 p-8 rounded-lg">
-            <form className="flex flex-col md:flex-row gap-4 justify-center">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
-                required
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-700 p-6 rounded-lg text-center hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-2">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+                alt="John Doe"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
-              <select className="px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500">
-                <option value="">Select Interest</option>
-                <option value="testing">Web Testing</option>
-                <option value="ai">AI Agents</option>
-                <option value="automation">Automation</option>
-              </select>
-              <button type="submit" className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Subscribe
+              <h3 className="text-xl font-semibold mb-2">John Doe</h3>
+              <p className="text-gray-300 mb-4">CEO & Founder</p>
+              <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition-colors">
+                Contact
               </button>
-            </form>
+            </div>
+            <div className="bg-gray-700 p-6 rounded-lg text-center hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-2">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+                alt="Jane Smith"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">Jane Smith</h3>
+              <p className="text-gray-300 mb-4">CTO</p>
+              <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition-colors">
+                Contact
+              </button>
+            </div>
+            <div className="bg-gray-700 p-6 rounded-lg text-center hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-2">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+                alt="Bob Johnson"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">Bob Johnson</h3>
+              <p className="text-gray-300 mb-4">Lead Developer</p>
+              <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold transition-colors">
+                Contact
+              </button>
+            </div>
           </div>
         </div>
       </section>
