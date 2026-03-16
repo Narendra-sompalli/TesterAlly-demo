@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Bot, Mail, Lock, Eye, EyeOff, Chrome, Github, X, Menu } from 'lucide-react';
 
@@ -26,33 +25,37 @@ function LoginForm() {
         return;
       }
 
-      const response = await axios.post("http://127.0.0.1:8000/api/login/", {
-        email: email,
-        password: password,
-      });
+      // Default hardcoded user for testing
+      const defaultUser = {
+        email: "test@test.com",
+        password: "password",
+        uname: "Test User",
+        phone_no: "1234567890"
+      };
 
-      const data = response.data;
-      console.log(data);
+      // Get registered users from localStorage
+      const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
 
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("uname", data.username);
-        localStorage.setItem("phone_no", data.mobileno);
-        localStorage.setItem("email", data.email);
+      // Check if login matches default user or any registered user
+      let user = null;
+      if (email === defaultUser.email && password === defaultUser.password) {
+        user = defaultUser;
+      } else {
+        user = registeredUsers.find(u => u.email === email && u.password === password);
+      }
+
+      if (user) {
+        // Simulate token for session management
+        localStorage.setItem("token", "mock-token-" + Date.now());
+        localStorage.setItem("uname", user.uname);
+        localStorage.setItem("phone_no", user.phone_no);
+        localStorage.setItem("email", user.email);
         navigate("/user");
-
-        console.log("Username:", data.username);
-        console.log("mobileno:", data.mobileno);
-        console.log("Email:", data.email);
       } else {
         setError("Incorrect email and password combination.");
       }
     } catch (err) {
-      if (err.response && err.response.status === 400) {
-        setError("Invalid email or password.");
-      } else {
-        setError("An error occurred while logging in.");
-      }
+      setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }

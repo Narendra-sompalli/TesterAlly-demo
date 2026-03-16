@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link } from 'react-router-dom';
 import { Bot, User, Mail, Lock, Phone, MapPin, Check, ArrowRight, X, Menu } from 'lucide-react'; 
 
@@ -38,13 +37,31 @@ function RegistrationForm() {
         }
 
         try {
-            await axios.post("http://127.0.0.1:8000/api/registration/", {
-                FirstName: firstName,
-                LastName: lastName,
-                mobileNumber: mobileNumber,
-                emailId: emailId,
+            // Get existing users from localStorage
+            const existingUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
+
+            // Check if email already exists
+            if (existingUsers.some(user => user.email === emailId)) {
+                setErrorMessage("Email already registered. Please use a different email.");
+                setIsLoading(false);
+                return;
+            }
+
+            // Create new user object
+            const newUser = {
+                uname: `${firstName} ${lastName}`,
+                email: emailId,
+                phone_no: mobileNumber,
                 password: password,
-            });
+                country: country,
+                accountType: accountType,
+                subscribeNewsletter: subscribeNewsletter
+            };
+
+            // Save to localStorage
+            existingUsers.push(newUser);
+            localStorage.setItem("registeredUsers", JSON.stringify(existingUsers));
+
             setRegistrationSuccess(true);
             setFirstName("");
             setLastName("");
