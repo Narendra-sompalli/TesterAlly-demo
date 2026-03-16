@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Bot, X, User, Play, FileText, Settings, Plus, FolderOpen, LogOut, Bell, Search, Filter, Upload, Eye, Calendar, Clock, CheckCircle, AlertTriangle, Info, Zap, BarChart3, Activity, Users, Target, TrendingUp, Menu } from 'lucide-react'; 
+import { Bot, X, User, Play, FileText, Settings, Plus, FolderOpen, LogOut, Bell, Search, Filter, Upload, Eye, Calendar, Clock, CheckCircle, AlertTriangle, Info, Zap, BarChart3, Activity, Users, Target, TrendingUp } from 'lucide-react'; 
 
 export default function Userpage() {
   const navigate = useNavigate();
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('medium');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, ] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notifications, setNotifications] = useState([
